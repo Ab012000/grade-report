@@ -1,0 +1,40 @@
+def average(data):
+    total = 0
+    for mark in data:
+        total += int(mark)
+    avg = total/(len(data))
+    print(f"{avg:.2f} is the average marks")
+def highlow(data):
+    data.sort()
+    high = data[-1]
+    low = data[0]
+    print(f"{high:} and {low} are high and low res")
+def passfail(data):
+    passers = 0
+    fail = 0
+    for mark in data:
+        if int(mark) >= 33:
+            passers +=1
+        else:
+            fail+=1
+    print(f"no of pass = {passers} and no of fail = {fail}")
+def bonus(data):
+    for i in range(len(data)):
+        mark = data[i]
+        nmark = int(mark) + int((15*int(mark))/100)
+        if nmark <= 100:
+            data[i] = str(nmark)
+        else:
+            data[i] = str(mark)
+    print(data)
+grades = input("")
+data = grades.split(",")
+operation = int(input(""))
+if operation == 1:
+    average(data)
+if operation == 2:
+    highlow(data)
+if operation == 3:
+    passfail(data)
+if operation == 4:
+    bonus(data)
